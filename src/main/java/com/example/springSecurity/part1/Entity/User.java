@@ -43,6 +43,7 @@ public class User {
 
     public static class Builder{
 
+        private Long id;
         private String userName;
         private String firstName;
         private String lastName;
@@ -54,6 +55,10 @@ public class User {
 
         }
 
+        public User.Builder setId(Long id) {
+            this.id = id;
+            return this;
+        }
         public User.Builder setUserName(String userName) {
             this.userName = userName;
             return this;
@@ -85,7 +90,7 @@ public class User {
         }
 
         public User build(){
-            return new User(this.userName,this.firstName,this.lastName,this.password,this.dateCreated,this.dateDeleted);
+            return new User(this.id,this.userName,this.firstName,this.lastName,this.password,this.dateCreated,this.dateDeleted);
         }
     }
 
