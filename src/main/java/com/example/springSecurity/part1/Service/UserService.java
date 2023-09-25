@@ -1,4 +1,4 @@
-package com.example.springSecurity.part1;
+package com.example.springSecurity.part1.Service;
 
 import com.example.springSecurity.part1.Repository.UserRepositoryImplements;
 import com.example.springSecurity.part1.dto.UserDTO;
