@@ -1,6 +1,7 @@
 package com.example.springSecurity.part1.Repository;
 
 import com.example.springSecurity.part1.Entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,10 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public class UserRepositoryImplements implements UserRepository {
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public void flush() {
         
@@ -93,8 +98,8 @@ public class UserRepositoryImplements implements UserRepository {
     }
 
     @Override
-    public <S extends User> S save(S entity) {
-        return null;
+    public <S extends User> S save(S User) {
+        return this.userRepository.save(User);
     }
 
     @Override
@@ -104,22 +109,22 @@ public class UserRepositoryImplements implements UserRepository {
 
     @Override
     public Optional<User> findById(Long aLong) {
-        return Optional.empty();
+        return this.userRepository.findById(aLong);
     }
 
     @Override
     public boolean existsById(Long aLong) {
-        return false;
+        return this.userRepository.existsById(aLong);
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        return this.userRepository.findAll();
     }
 
     @Override
     public List<User> findAllById(Iterable<Long> longs) {
-        return null;
+        return this.userRepository.findAllById(longs);
     }
 
     @Override

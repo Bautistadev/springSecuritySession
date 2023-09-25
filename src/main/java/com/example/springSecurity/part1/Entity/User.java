@@ -28,11 +28,11 @@ public class User {
     @Column(name="password")
     private String password;
     @Column(name="dateCreated")
-    private LocalDateTime dateCreated;
+    private String dateCreated;
     @Column(name="dateDeletad")
-    private LocalDateTime dateDeleted;
+    private String dateDeleted;
 
-    public User(String userName, String firstName, String lastName, String password, LocalDateTime dateCreated, LocalDateTime dateDeleted) {
+    public User(String userName, String firstName, String lastName, String password, String dateCreated, String dateDeleted) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,8 +47,8 @@ public class User {
         private String firstName;
         private String lastName;
         private String password;
-        private LocalDateTime dateCreated;
-        private LocalDateTime dateDeleted;
+        private String dateCreated;
+        private String dateDeleted;
 
         public Builder() {
 
@@ -74,12 +74,12 @@ public class User {
             return this;
         }
 
-        public User.Builder setDateCreated(LocalDateTime dateCreated) {
+        public User.Builder setDateCreated(String dateCreated) {
             this.dateCreated = dateCreated;
             return this;
         }
 
-        public User.Builder setDateDeleted(LocalDateTime dateDeleted) {
+        public User.Builder setDateDeleted(String dateDeleted) {
             this.dateDeleted = dateDeleted;
             return this;
         }
