@@ -2,6 +2,7 @@ package com.example.springSecurity.part1;
 
 import com.example.springSecurity.part1.Entity.User;
 import com.example.springSecurity.part1.Repository.UserRepositoryImplements;
+import com.example.springSecurity.part1.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -22,7 +23,18 @@ public class Part1Application {
 
 		UserRepositoryImplements u = context.getBean(UserRepositoryImplements.class);
 
-		System.out.println(u.existsById(1L));
+		User user = new User.Builder()
+				.setId(1L)
+				.setFirstName("admin")
+				.setUserName("admin")
+				.setLastName("admin")
+				.setPassword("admin")
+				.setDateCreated("2023-09-24 20:16:43.798590")
+				.setDateDeleted(null)
+				.build();
+
+		System.out.println(user);
+		System.out.println(u.findById(1L).get());
 
 	}
 
