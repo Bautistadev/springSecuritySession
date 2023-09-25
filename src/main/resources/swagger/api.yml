@@ -1,0 +1,58 @@
+openapi: 3.0.0
+
+info:
+  title: UserDocumentation
+  version: 1.0.0
+  description: 'FIRST VERSION OF USER SYSTEM WITH SPRING SECURITY LOGIN'
+
+
+servers:
+  - url: http://localhost:8080/v1/api
+    description: 'api url'
+
+paths:
+  /user:
+    post:
+      summary: Save User
+      operationId: saveUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+
+components:
+  schemas:
+    UserDTO:
+      type: object
+      description: 'User object'
+      properties:
+        id:
+          type: number
+        userName:
+          type: string
+          minLength: 3
+          maxLength: 10
+        firstName:
+          type: string
+          minLength: 3
+          maxLength: 10
+        lastName:
+          type: string
+          minLength: 3
+          maxLength: 10
+        password:
+          type: string
+          minLength: 3
+          maxLength: 10
+        dateCreated:
+          type: string
+        dateDeleted:
+          type: string

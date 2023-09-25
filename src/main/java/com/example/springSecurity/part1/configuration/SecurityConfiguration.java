@@ -12,7 +12,7 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain getFilter(HttpSecurity http) throws Exception {
-        return http.formLogin().disable().build();
+        return http.formLogin().disable().authorizeRequests().anyRequest().permitAll().and().build();
     }
 
 }
